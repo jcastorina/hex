@@ -2,3 +2,7 @@ body {
   overflow: hidden;
   margin: 0;
 }
+
+canvas {
+  transform: scaleY(1.732);
+}

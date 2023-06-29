@@ -23,7 +23,7 @@ let counter = 1;
 let zig = true;
 
 let hw = 75;
-let hh = 87;
+let hh = 86.5;
 let offset = false;
 
 function drawHexBoard(context, x, y, w, h, counter) {
