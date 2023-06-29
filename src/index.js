@@ -22,15 +22,27 @@ function drawHexagon(context, x, y, size, width, height) {
 let counter = 1;
 let zig = true;
 
-let hw = 100;
+let hw = 75;
 let hh = 87;
+let offset = false;
 
 function drawHexBoard(context, x, y, w, h, counter) {
   // total hex width is 100
   // height seems like 137 ?
   for (let i = 0; i < w; i++) {
+    if (i % 2) {
+      offset = true;
+    } else {
+      offset = false;
+    }
     for (let j = 0; j < h; j++) {
-      drawHexagon(context, x + i * hw, y + j * hh, 50, 1);
+      drawHexagon(
+        context,
+        x + i * hw,
+        y + j * hh + (offset ? 87 / 2 : 0),
+        50,
+        1
+      );
     }
   }
 }
@@ -43,7 +55,7 @@ function animate() {
   }
 
   context.clearRect(0, 0, canvas.width, canvas.height);
-  drawHexBoard(context, 0, 0, 20, 15, counter);
+  drawHexBoard(context, 0, 0, 28, 15, counter);
   counter += zig ? -0.01 : 0.01;
   requestAnimationFrame(animate);
 }
